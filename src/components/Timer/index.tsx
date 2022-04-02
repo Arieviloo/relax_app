@@ -5,26 +5,42 @@ export const Timer = () => {
   const [init, setInit] = useState(0)
   console.log(init)
   const [title, setTitle] = useState('')
+  const [start, setStart] = useState(false)
 
   const totalTime = 19000
   const breatheTime = 4000
   const holdTime = 7000
 
-  useEffect(() => {
-    setTimeout(() => {
-      setTitle('in')
-      console.log('test', Date())
+  const initApp = () => {
+    return setTimeout(() => {
+      setTitle('inspirar')
       setTimeout(() => {
-        setTitle('hold')
-        console.log('aqui', Date())
+        setTitle('segurar')
         setTimeout(() => {
-          console.log('hold', Date())
-
-          setTitle('out')
+          setTitle('expirar')
         }, holdTime)
       }, breatheTime)
       setInit(init + 1)
     }, totalTime)
+  }
+
+  const alreadyStartedApp = () => {
+    setTitle('inspirar')
+    setTimeout(() => {
+      setTitle('segurar')
+      setTimeout(() => {
+        setTitle('expirar')
+      }, holdTime)
+    }, breatheTime)
+    setInit(init + 1)
+  }
+
+  useEffect(() => {
+    if (init !== 0) {
+      initApp()
+    } else {
+      alreadyStartedApp()
+    }
   }, [init])
 
   return (
