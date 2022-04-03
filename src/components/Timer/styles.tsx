@@ -23,10 +23,26 @@ const textgrowth = keyframes`
 
 export const WhatBox = styled.div`
   max-width: 900px;
+  display: flex;
+  flex-direction: column;
   ul {
     margin-left: 3rem;
     font-size: 16px;
     line-height: 1.5;
+  }
+`
+
+export const BtnStart = styled.button`
+  padding: 1.7rem 5rem;
+  margin-top: 2rem;
+  border: none;
+  border-radius: 8px;
+  border: none;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover {
+    background-color: #e20e8d;
   }
 `
 

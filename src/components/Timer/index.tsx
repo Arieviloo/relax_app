@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Container, Box, Text, WhatBox } from './styles'
+import { Container, Box, Text, WhatBox, BtnStart } from './styles'
 
 export const Timer = () => {
   const [init, setInit] = useState(0)
@@ -35,10 +35,18 @@ export const Timer = () => {
   }
 
   useEffect(() => {
+    console.log(start)
+
     if (start === true) {
+      console.log('1')
+
       if (init !== 0) {
+        console.log('2')
+
         initApp()
       } else {
+        console.log('3')
+
         alreadyStartedApp()
       }
     }
@@ -64,11 +72,12 @@ export const Timer = () => {
               <li>Segurar o ar nos pulmões por 7 segundos; </li>
               <li>E soltar o ar pela boca durante 8 segundos.</li>
             </ul>
+            <BtnStart onClick={handleToStart}> Começar </BtnStart>
           </WhatBox>
         )}
         <Text>{title}</Text>
-        <button onClick={handleToStart}>Começar</button>
       </Box>
+      {init === 0 && <p>*preste atenção na sua respiração</p>}
     </Container>
   )
 }
