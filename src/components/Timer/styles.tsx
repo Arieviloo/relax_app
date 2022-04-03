@@ -22,7 +22,12 @@ const textgrowth = keyframes`
 `
 
 export const WhatBox = styled.div`
-  max-width: 500px;
+  max-width: 900px;
+  ul {
+    margin-left: 3rem;
+    font-size: 16px;
+    line-height: 1.5;
+  }
 `
 
 export const Text = styled.h2`

@@ -3,7 +3,6 @@ import { Container, Box, Text, WhatBox } from './styles'
 
 export const Timer = () => {
   const [init, setInit] = useState(0)
-  console.log(init)
   const [title, setTitle] = useState('')
   const [start, setStart] = useState(false)
 
@@ -36,12 +35,18 @@ export const Timer = () => {
   }
 
   useEffect(() => {
-    if (init !== 0) {
-      initApp()
-    } else {
-      alreadyStartedApp()
+    if (start === true) {
+      if (init !== 0) {
+        initApp()
+      } else {
+        alreadyStartedApp()
+      }
     }
-  }, [init])
+  }, [start, init])
+
+  const handleToStart = () => {
+    setStart(!start)
+  }
 
   return (
     <Container>
@@ -51,14 +56,18 @@ export const Timer = () => {
           <WhatBox>
             <p>O que é respiração 4-7-8? </p>
             <p>
-              - Gostamos de chamá-la de respiração 4-7-8, justamente porque
-              consiste em: Puxar o ar pelo nariz por 4 segundos; Segurar o ar
-              nos pulmões por 7 segundos; Soltar o ar pela boca durante 8
-              segundos.
+              - Gosto de chamá-la de respiração 4-7-8 justamente porque consiste
+              em:
             </p>
+            <ul>
+              <li>Puxar o ar pelo nariz por 4 segundos; </li>
+              <li>Segurar o ar nos pulmões por 7 segundos; </li>
+              <li>E soltar o ar pela boca durante 8 segundos.</li>
+            </ul>
           </WhatBox>
         )}
         <Text>{title}</Text>
+        <button onClick={handleToStart}>Começar</button>
       </Box>
     </Container>
   )
