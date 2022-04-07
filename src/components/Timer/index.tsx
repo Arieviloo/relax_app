@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Container, Box, Text, WhatBox, BtnStart } from './styles'
+import { motion } from 'framer-motion'
 
 export const Timer = () => {
   const [init, setInit] = useState(0)
@@ -35,18 +36,10 @@ export const Timer = () => {
   }
 
   useEffect(() => {
-    console.log(start)
-
     if (start === true) {
-      console.log('1')
-
       if (init !== 0) {
-        console.log('2')
-
         initApp()
       } else {
-        console.log('3')
-
         alreadyStartedApp()
       }
     }
@@ -77,7 +70,11 @@ export const Timer = () => {
         )}
         <Text>{title}</Text>
       </Box>
-      {init === 0 && <p>*preste atenção na sua respiração</p>}
+      {init === 0 && (
+        <motion.h2 animate={{ fontSize: '18px' }}>
+          *preste atenção na sua respiração
+        </motion.h2>
+      )}
     </Container>
   )
 }

@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint src --max-warnings=0",
+    "lint": "eslint src",
     "test": "jest --maxWorkers=50%",
     "test:watch": "jest --watch --maxWorkers=25%",
     "test:ci": "jest --runInBand",
@@ -21,6 +21,7 @@
     ]
   },
   "dependencies": {
+    "framer-motion": "^6.2.8",
     "leaflet": "^1.7.1",
     "next": "12.1.0",
     "next-pwa": "^5.3.1",

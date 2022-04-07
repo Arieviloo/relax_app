@@ -41,8 +41,10 @@ export const BtnStart = styled.button`
   font-size: 18px;
   text-transform: uppercase;
   cursor: pointer;
+  background-color: var(--highlight);
   &:hover {
-    background-color: #e20e8d;
+    background-color: #f90297;
+    color: var(--white);
   }
 `
 
