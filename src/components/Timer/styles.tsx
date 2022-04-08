@@ -43,7 +43,7 @@ export const BtnStart = styled.button`
   cursor: pointer;
   background-color: var(--highlight);
   &:hover {
-    background-color: #f90297;
+    filter: brightness(1.3);
     color: var(--white);
   }
 `
